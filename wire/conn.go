@@ -5,7 +5,8 @@ import "github.com/zach-klippenstein/goadb/internal/errors"
 const (
 	// The official implementation of adb imposes an undocumented 255-byte limit
 	// on messages.
-	MaxMessageLength = 255
+	// TODO max length error, should not be 255
+	MaxMessageLength = 1024 * 1024
 )
 
 /*

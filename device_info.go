@@ -41,6 +41,7 @@ func newDevice(serial string, attrs map[string]string) (*DeviceInfo, error) {
 
 func parseDeviceList(list string, lineParseFunc func(string) (*DeviceInfo, error)) ([]*DeviceInfo, error) {
 	devices := []*DeviceInfo{}
+	//log.Println("parse DeviceList list=", list)
 	scanner := bufio.NewScanner(strings.NewReader(list))
 
 	for scanner.Scan() {
@@ -65,6 +66,7 @@ func parseDeviceShort(line string) (*DeviceInfo, error) {
 }
 
 func parseDeviceLong(line string) (*DeviceInfo, error) {
+	//log.Println("parse line", line)
 	fields := strings.Fields(line)
 	if len(fields) < 5 {
 		return nil, errors.Errorf(errors.ParseError,

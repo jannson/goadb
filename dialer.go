@@ -28,6 +28,7 @@ func (tcpDialer) Dial(address string) (*wire.Conn, error) {
 	// so we need to wrap it to make it safe.
 	safeConn := wire.MultiCloseable(netConn)
 
+	// TODO need ?
 	// Prevent leaking the network connection, not sure if TCPConn does this itself.
 	// Note that the network connection may still be in use after the conn isn't (scanners/senders
 	// can give their underlying connections to other scanner/sender types), so we can't
